@@ -321,5 +321,8 @@ footer{background:rgba(5,7,14,.97);border-top:1px solid var(--line);padding:2rem
   .exp{grid-template-columns:1fr;gap:.35rem}
   .cert-grid{grid-template-columns:1fr}
   .sk-grid{grid-template-columns:repeat(2,1fr)}
+  .tl-lbl{font-size:.4rem;letter-spacing:.02em;line-height:1.1;max-width:60px;text-align:center;word-wrap:break-word}
+  .tl-node{gap:.1rem}
+  .ptn-lbl{font-size:.35rem;letter-spacing:.01em;top:20px;max-width:30px;text-align:center;white-space:normal;line-height:1.1}
   .tl-track{display:none}
 }
