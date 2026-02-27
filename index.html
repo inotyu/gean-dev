@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gean Carlos</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="script.js" defer></script>
+
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <!-- DEFAULT STATE -->
+  <div class="hdr-default">
+    <a href="#hero" class="header-brand">Gean<span>.</span></a>
+    <nav class="tl-track" id="tl-track">
+      <div class="tl-node" data-section="hero"><span class="tl-lbl">Início</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="about"><span class="tl-lbl">Profissional</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="skills"><span class="tl-lbl">Skills</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="projects-section"><span class="tl-lbl">Projetos</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="experience"><span class="tl-lbl">Experiência</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="certificates"><span class="tl-lbl">Cursos</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="about-human"><span class="tl-lbl">Humano</span><div class="tl-dot"></div></div>
+      <div class="tl-node" data-section="contact"><span class="tl-lbl">Contato</span><div class="tl-dot"></div></div>
+    </nav>
+    <button id="menu-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      Menu
+    </button>
+  </div>
+  <!-- PROJECTS STATE -->
+  <div class="hdr-proj">
+    <a href="#projects-section" class="proj-hdr-brand">Gean<span>.</span> <span style="font-weight:400;color:var(--mid);font-size:.8rem">/ Projetos</span></a>
+    <div class="proj-tl">
+      <div class="proj-tl-line-bg"></div>
+      <div class="proj-tl-line-fill" id="proj-line-fill"></div>
+      <div class="proj-tl-nodes" id="proj-tl-nodes">
+        <div class="ptn active" data-pi="0"><div class="ptn-dot"></div><span class="ptn-lbl">SaaS Platform</span></div>
+        <div class="ptn" data-pi="1"><div class="ptn-dot"></div><span class="ptn-lbl">Bipstation</span></div>
+        <div class="ptn" data-pi="2"><div class="ptn-dot"></div><span class="ptn-lbl">Back-end</span></div>
+        <div class="ptn" data-pi="3"><div class="ptn-dot"></div><span class="ptn-lbl">Inventário</span></div>
+      </div>
+    </div>
+    <button class="proj-hdr-exit" id="proj-exit-btn">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      Sair
+    </button>
+  </div>
+</header>
+
+<!-- dropdown -->
+<div id="dropdown">
+  <a href="#hero" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Início</a>
+  <a href="#about" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Profissional</a>
+  <a href="#about-human" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Humano</a>
+  <a href="#skills" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Skills</a>
+  <a href="#projects-section" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Projetos</a>
+  <a href="#experience" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Experiência</a>
+  <a href="#certificates" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Cursos</a>
+  <a href="#manifesto" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Filosofia</a>
+  <a href="#testimonials" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Depoimentos</a>
+  <a href="#contact" class="nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contato</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <h1>Olá,<br><span class="blue">Mundo.</span></h1>
+    <p class="hero-desc" style="margin-bottom:2.5rem">Bem-vindo ao meu portfólio. Sou <strong>desenvolvedor Full-Stack</strong> — construo APIs REST, interfaces modernas e aplicações SaaS do zero à produção.</p>
+    <div class="hero-cta">
+      <a href="#projects-section" class="btn btn-fill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Ver Projetos
+      </a>
+      <a href="#contact" class="btn btn-out">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contato
+      </a>
+      <span class="cta-or">ou</span>
+      <a href="#about" class="btn btn-soft">Sobre mim →</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="h-line"></div>scroll</div>
+</section>
+
+<!-- ══ SOBRE — PROFISSIONAL ══ -->
+<section id="about">
+  <div class="about-split fi">
+    <div class="about-photo-col">
+      <div class="about-photo-wrap">
+        <img src="src/profile/gean.jpg" alt="Gean Carlos"/>
+      </div>
+      <div class="about-identity">
+        <div class="about-name">Gean Carlos</div>
+        <div class="about-role-line">20 anos · Brasília, DF · Dev Full-Stack</div>
+        <div class="about-tags">
+          <span class="atag">Flask</span><span class="atag">React</span><span class="atag">Vue</span><span class="atag">PostgreSQL</span><span class="atag">Python</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text-col">
+      <div class="s-label">O Gean Profissional</div>
+      <h2>Dev <em>Full-Stack.</em></h2>
+      <p class="s-desc">Stack principal: Flask, React, Vue, Vite, PostgreSQL, MySQL. Do banco de dados à interface, com foco em código limpo e arquitetura que faz sentido.</p>
+      <div class="manifesto-items">
+        <div class="m-item">
+          <span class="m-num">01</span>
+          <div class="m-text"><strong>Escrevo código limpo.</strong> Tão limpo que quando quebra, ninguém acredita que fui eu.</div>
+        </div>
+        <div class="m-item">
+          <span class="m-num">02</span>
+          <div class="m-text"><strong>Integração falhou?</strong> Estranho. Na minha máquina estava digno de prêmio.</div>
+        </div>
+        <div class="m-item">
+          <span class="m-num">03</span>
+          <div class="m-text"><strong>Estou sempre estudando.</strong> Principalmente depois que algo dá errado e eu finjo que já sabia.</div>
+        </div>
+      </div>
+      <div class="about-phrase" style="margin-top:1.75rem">
+        <div class="phrase-text">"Meu código é tão avançado que nem eu entendo como ele funciona. Por isso ninguém ousa mexer."</div>
+        <div class="phrase-attr">— Gean Carlos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills">
+  <div class="skills-wrap">
+    <div class="s-label fi">Stack</div>
+    <h2 class="fi">O que eu <em>uso</em></h2>
+    <p class="s-desc fi">Tecnologias do dia a dia — do banco à interface.</p>
+    <div class="sk-grid fi d1">
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2C6.5 2 7 4.5 7 6.5V9h5.5v1H5.5C3.5 10 2 11.5 2 14s1.5 4 3.5 4h1V16.5c0-1.5 1-3 3.5-3h4c1.5 0 3-1 3-3V6.5C17 4 16 2 12 2z"/><path d="M12 22c5.5 0 5-2.5 5-4.5V15h-5.5v-1h7c2 0 3.5-1.5 3.5-4s-1.5-4-3.5-4h-1V7.5c0 1.5-1 3-3.5 3H10c-1.5 0-3 1-3 3V17.5C7 20 8 22 12 22z"/></svg>Python <span class="sk-desc">Automação, APIs e back-end robusto</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 3l-2 9s3-1 5 1 5 1 5 1l-2-11"/><path d="M7 12s-3 5-1 8 10 3 12 0-1-8-1-8"/></svg>Flask <span class="sk-desc">APIs REST e microserviços</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M13 9v6.5a2.5 2.5 0 0 1-5 0"/><path d="M17 9v4c0 1.5-.5 2.5-2 2.5"/></svg>JavaScript <span class="sk-desc">Interatividade e lógica no front-end</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>React <span class="sk-desc">Componentes reutilizáveis e estado global</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Vue <span class="sk-desc">Framework progressivo e reativo</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Vite <span class="sk-desc">Build rápido e desenvolvimento moderno</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 3l1.5 16.5L12 21l6.5-1.5L20 3z"/><path d="M8 8h8l-.5 5-3.5 1-3.5-1L12 11H15"/></svg>HTML & CSS <span class="sk-desc">Estrutura semântica e design responsivo</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>PostgreSQL <span class="sk-desc">Banco robusto para dados complexos</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v5c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 10v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>MySQL <span class="sk-desc">Banco relacional para aplicações web</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="6" cy="6" r="2"/><path d="M6 8v8M8 6h8"/></svg>Git & GitHub <span class="sk-desc">Controle de versão e colaboração</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>APIs REST <span class="sk-desc">Integração entre front e back-end</span></div>
+      <div class="sk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 9l3 3-3 3m5-6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2"/></svg>Docker <span class="sk-desc">Contêineres e deploy consistente</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects-section">
+  <div class="proj-outer">
+    <div class="s-label fi">Projetos</div>
+    <h2 class="fi">Uma jornada de <em>aprendizado</em></h2>
+    <p class="s-desc fi">Cada projeto foi um passo. Role para explorar.</p>
+
+    <div class="proj-list">
+      <!-- sentinels are injected by JS -->
+
+      <div class="proj-card fi" data-proj-idx="0">
+        <div class="proj-card-inner">
+          <div class="pc-info">
+            <div class="pc-top">
+              <span class="pc-tag-badge">Atual</span>
+              <span class="pc-year">Jan 2026</span>
+            </div>
+            <div class="pc-name">SaaS Platform</div>
+            <div class="pc-sub">Artificall Ltda · Produção</div>
+            <div class="pc-desc">Aplicação SaaS completa com autenticação JWT, controle de acesso por roles e painel administrativo. Back-end Flask + PostgreSQL, front React/Vite/Vue. Foco em escalabilidade e arquitetura limpa.</div>
+            <div class="pc-tags"><span class="pc-t">Flask</span><span class="pc-t">PostgreSQL</span><span class="pc-t">React</span><span class="pc-t">Vue</span><span class="pc-t">Vite</span><span class="pc-t">JWT</span><span class="pc-t">REST</span></div>
+            <div class="pc-actions">
+              <a href="https://github.com/Artificiallltda/saas_artificial_ltda_devs" target="_blank" class="pc-btn pc-btn-fill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+                          </div>
+          </div>
+          <div class="pc-visual">
+            <div class="pc-mock">
+              <div class="mock-bar"><div class="mock-d" style="background:#f87171"></div><div class="mock-d" style="background:#fbbf24"></div><div class="mock-d" style="background:#4ade80"></div></div>
+              <div class="mock-l accent" style="width:55%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l" style="width:80%;margin-bottom:.35rem"></div>
+              <div class="mock-l" style="width:60%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l accent" style="width:40%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="proj-card fi d1" data-proj-idx="2">
+        <div class="proj-card-inner">
+          <div class="pc-info">
+            <div class="pc-top">
+              <span class="pc-tag-badge">Imobiliária</span>
+              <span class="pc-year">2025</span>
+            </div>
+            <div class="pc-name">Sistema Imobiliário</div>
+            <div class="pc-sub">Artificall Ltda · Full-Stack</div>
+            <div class="pc-desc">Projeto completo full-stack: React/Vue + Vite (frontend) e FastAPI (backend). Sistema robusto para gestão imobiliária com autenticação e CRUD completo.</div>
+            <div class="pc-tags"><span class="pc-t">React</span><span class="pc-t">Vue</span><span class="pc-t">Vite</span><span class="pc-t">FastAPI</span><span class="pc-t">PostgreSQL</span></div>
+            <div class="pc-actions">
+              <a href="https://github.com/Artificiallltda/imobiliaria_artificial_ltda" target="_blank" class="pc-btn pc-btn-fill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+                          </div>
+          </div>
+          <div class="pc-visual">
+            <div class="pc-mock">
+              <div class="mock-bar"><div class="mock-d" style="background:#f87171"></div><div class="mock-d" style="background:#fbbf24"></div><div class="mock-d" style="background:#4ade80"></div></div>
+              <div class="mock-l accent" style="width:65%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l" style="width:80%;margin-bottom:.35rem"></div>
+              <div class="mock-l" style="width:55%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l accent" style="width:45%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fi d1" data-proj-idx="3">
+        <div class="proj-card-inner">
+          <div class="pc-info">
+            <div class="pc-top">
+              <span class="pc-tag-badge">Desafio Sicredi</span>
+              <span class="pc-year">2025</span>
+            </div>
+            <div class="pc-name">Sistema de Gestão Sicredi</div>
+            <div class="pc-sub">Projeto acadêmico · Full-Stack</div>
+            <div class="pc-desc">Sistema web completo para gestão centralizada de ambientes, documentos, equipamentos e reservas. Autenticação, controle de acesso por perfil, dashboards e relatórios gerenciais.</div>
+            <div class="pc-tags"><span class="pc-t">Flask</span><span class="pc-t">SQLite</span><span class="pc-t">Bootstrap</span><span class="pc-t">Jinja2</span></div>
+            <div class="pc-actions">
+              <a href="https://github.com/inotyu/sicredi-2025-sistema-gestao" target="_blank" class="pc-btn pc-btn-fill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="pc-visual">
+            <div class="pc-mock">
+              <div class="mock-bar"><div class="mock-d" style="background:#f87171"></div><div class="mock-d" style="background:#fbbf24"></div><div class="mock-d" style="background:#4ade80"></div></div>
+              <div class="mock-l accent" style="width:75%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l" style="width:90%;margin-bottom:.35rem"></div>
+              <div class="mock-l" style="width:65%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l" style="width:40%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fi d1" data-proj-idx="4">
+        <div class="proj-card-inner">
+          <div class="pc-info">
+            <div class="pc-top">
+              <span class="pc-tag-badge">Primeiro projeto</span>
+              <span class="pc-year">Fev 2025</span>
+            </div>
+            <div class="pc-name">Landing Bipstation</div>
+            <div class="pc-sub">Bipstation · Projeto real</div>
+            <div class="pc-desc">Landing page institucional responsiva com Flask e MySQL. Interface em HTML, CSS e Bootstrap. Validações e funcionalidades dinâmicas com JavaScript puro, integração completa front-back.</div>
+            <div class="pc-tags"><span class="pc-t">Flask</span><span class="pc-t">MySQL</span><span class="pc-t">Bootstrap</span><span class="pc-t">JavaScript</span><span class="pc-t">HTML</span><span class="pc-t">CSS</span></div>
+            <div class="pc-actions">
+              <a href="https://github.com/inotyu" target="_blank" class="pc-btn pc-btn-fill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="pc-visual">
+            <div class="pc-mock">
+              <div class="mock-bar"><div class="mock-d" style="background:#f87171"></div><div class="mock-d" style="background:#fbbf24"></div><div class="mock-d" style="background:#4ade80"></div></div>
+              <div class="mock-l" style="width:70%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+              <div class="mock-l accent" style="width:85%;margin-bottom:.35rem"></div>
+              <div class="mock-l" style="width:50%;margin-bottom:.5rem"></div>
+              <div class="mock-b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div><!-- /proj-list -->
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="exp-wrap">
+    <div class="s-label fi">Trajetória</div>
+    <h2 class="fi">Experiência</h2>
+    <div class="exp-list fi d1">
+      <div class="exp">
+        <div class="exp-period">Jan 2026<br>Atual</div>
+        <div><div class="exp-role">Desenvolvedor Full-Stack Júnior</div><div class="exp-co">Artificall Ltda</div><div class="exp-desc">SaaS com Flask e PostgreSQL. APIs REST, autenticação JWT, interfaces React/Vue/Vite e melhorias contínuas de performance e arquitetura.</div></div>
+      </div>
+      <div class="exp">
+        <div class="exp-period">Fev–Mai<br>2025</div>
+        <div><div class="exp-role">Desenvolvedor Web</div><div class="exp-co">Bipstation</div><div class="exp-desc">Landing page com Flask, MySQL, Bootstrap e JavaScript. Interface responsiva e integração completa front-back.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATES ══ -->
+<section id="certificates" style="min-height:auto">
+  <div class="cert-wrap">
+    <div class="s-label fi">Formação</div>
+    <h2 class="fi">Cursos & <em>Certificados</em></h2>
+    <p class="s-desc fi">Aprendizado formal e contínuo.</p>
+    <div class="cert-grid fi d1">
+      <div class="cert-card">
+        <div class="cert-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="cert-name">Técnico em Desenvolvimento de Sistemas</div>
+        <div class="cert-hours">1200h · 2024–2025</div>
+        <div class="cert-desc">Web, desktop, integração front-back, modelagem de BD, POO e Git.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg></div>
+        <div class="cert-name">Administrador de Banco de Dados</div>
+        <div class="cert-hours">200h · 2023</div>
+        <div class="cert-desc">SQL avançado, modelagem, normalização, otimização e segurança.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="cert-name">Assistente de TI</div>
+        <div class="cert-hours">200h · 2023–2024</div>
+        <div class="cert-desc">Infraestrutura, suporte técnico, redes e manutenção de sistemas.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="cert-name">Microsoft Power BI</div>
+        <div class="cert-hours">40h · 2023</div>
+        <div class="cert-desc">Dashboards, DAX, modelagem avançada e relatórios interativos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ SOBRE — HUMANO ══ -->
+<section id="about-human">
+  <div class="human-wrap fi">
+    <div class="s-label">O Gean Humano</div>
+    <h2>Além do <em>código.</em></h2>
+    <p class="s-desc">Oi! Sou o Gean, 20 anos, Brasília. Fora do trabalho sou movido por jogos, anime e música — coisas que moldam como eu enxergo design e construo experiências.</p>
+
+    <!-- BIO + frase -->
+    <div class="human-bio fi">
+      <p>Comecei a programar por curiosidade pura — queria entender como as coisas funcionavam por baixo da tela. Descobri que o mesmo instinto que me faz rejugar uma fase até dominar também me faz refatorar código até ficar certo.</p>
+      <p>Anime me ensinou que personagens com profundidade importam mais que efeitos especiais. Aplico isso em UI: o que parece simples por cima exige muito trabalho por baixo.</p>
+    </div>
+
+    <!-- INTERESSES com imagens -->
+    <div class="interests-grid fi d1">
+
+      <!-- JOGOS -->
+      <div class="interest-card">
+        <div class="ic-header">
+          <div class="ic-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M12 10v4M10 12h4"/><circle cx="17" cy="11" r=".8" fill="currentColor"/><circle cx="17" cy="13" r=".8" fill="currentColor"/></svg></div>
+          <span class="ic-cat">Games</span>
+        </div>
+        <div class="ic-title">Mundos que me formaram</div>
+        <div class="ic-media-row">
+          <div class="ic-media-card">
+            <img src="src/Jogos/NierAutomata.jpg" alt="Nier: Automata" class="ic-img"/>
+            <span>Nier: Automata</span>
+          </div>
+          <div class="ic-media-card">
+            <img src="src/Jogos/MyHeroUltraRumble.jpg" alt="My Hero Ultra Rumble" class="ic-img"/>
+            <span>My Hero Ultra Rumble</span>
+          </div>
+          <div class="ic-media-card">
+            <img src="src/Jogos/dengekibunkofighting.jpg" alt="Dengeki Bunko Fighting Climax" class="ic-img"/>
+            <span>Dengeki Bunko Fighting Climax</span>
+          </div>
+        </div>
+        <p class="ic-desc">Meus jogos favoritos que moldaram como eu enxergo design e experiências.</p>
+      </div>
+
+      <!-- ANIME -->
+      <div class="interest-card">
+        <div class="ic-header">
+          <div class="ic-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <span class="ic-cat">Anime</span>
+        </div>
+        <div class="ic-title">Histórias que ficam</div>
+        <div class="ic-media-row">
+          <div class="ic-media-card">
+            <img src="src/animes/Kaoru Hana wa Rin to Saku.webp" alt="Kaoru Hana wa Rin to Saku" class="ic-img"/>
+            <span>Kaoru Hana wa Rin to Saku</span>
+          </div>
+          <div class="ic-media-card">
+            <img src="src/animes/Danganronpa.jpg" alt="Danganronpa" class="ic-img"/>
+            <span>Danganronpa</span>
+          </div>
+          <div class="ic-media-card">
+            <img src="src/animes/Monster.jpg" alt="Monster" class="ic-img"/>
+            <span>Monster</span>
+          </div>
+        </div>
+        <p class="ic-desc">Personagens com profundidade me ensinaram que o que parece simples por cima exige muito por baixo.</p>
+      </div>
+
+      <!-- MÚSICA -->
+      <div class="interest-card interest-card-wide">
+        <div class="ic-header">
+          <div class="ic-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <span class="ic-cat">Música</span>
+        </div>
+        <div class="ic-title">O fundo sonoro de tudo</div>
+        <div class="music-row">
+          <div class="music-item">
+            <div style="width:100%;border-radius:8px;overflow:hidden">
+              <iframe data-testid="embed-iframe" style="border-radius:8px" src="https://open.spotify.com/embed/album/0ufX8Ihc83E9Xooeo34dSq?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="music-item">
+            <div style="width:100%;border-radius:8px;overflow:hidden">
+              <iframe data-testid="embed-iframe" style="border-radius:8px" src="https://open.spotify.com/embed/album/5vx5TutgnBly7DotM5rMvI?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="music-item">
+            <div style="width:100%;border-radius:8px;overflow:hidden">
+              <iframe data-testid="embed-iframe" style="border-radius:8px" src="https://open.spotify.com/embed/album/2ErYBx2f1cjp9ewpsBA1Gq?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-split">
+      <div>
+        <div class="s-label fi">Contato</div>
+        <div class="contact-big fi">Bora<br><em>conversar?</em></div>
+        <p class="contact-tagline fi">Aberto a projetos, oportunidades e trocas de ideia.</p>
+        <div class="c-list fi d1">
+          <a href="mailto:contatogeanpls@gmail.com" class="c-link">
+            <div class="c-left"><div class="c-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-name">E-mail</div><div class="c-val">contatogeanpls@gmail.com</div></div></div>
+            <div class="c-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="https://github.com/inotyu" target="_blank" class="c-link">
+            <div class="c-left"><div class="c-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div><div><div class="c-name">GitHub</div><div class="c-val">github.com/inotyu</div></div></div>
+            <div class="c-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="https://www.linkedin.com/in/geansystem/" target="_blank" class="c-link">
+            <div class="c-left"><div class="c-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="c-name">LinkedIn</div><div class="c-val">in/geansystem</div></div></div>
+            <div class="c-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="tel:+5561982148005" class="c-link">
+            <div class="c-left"><div class="c-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="c-name">Telefone</div><div class="c-val">(61) 98214-8005</div></div></div>
+            <div class="c-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-aside fi d2">
+        <div class="ca-title">Info rápida</div>
+        <div class="ca-items">
+          <div class="ca-item"><div class="ca-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ca-label">Localização</div><div class="ca-val">Brasília, DF — Brasil</div></div></div>
+          <div class="ca-item"><div class="ca-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ca-label">Resposta</div><div class="ca-val">Geralmente em 24h</div></div></div>
+          <div class="ca-item"><div class="ca-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><div><div class="ca-label">Disponibilidade</div><div class="ca-val">Aberto a oportunidades</div></div></div>
+          <div class="ca-item"><div class="ca-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="ca-label">Stack principal</div><div class="ca-val">Flask · React · Vue · PostgreSQL</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="foot">
+    <div class="f-brand">Gean<span>.</span></div>
+    <div class="f-links">
+      <a href="https://github.com/inotyu" target="_blank" class="f-link" aria-label="GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+      <a href="https://www.linkedin.com/in/geansystem/" target="_blank" class="f-link" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="mailto:contatogeanpls@gmail.com" class="f-link" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke="stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    </div>
+    <div class="f-copy">© 2026 Gean Carlos · Full-Stack Developer · Brasília, DF</div>
+  </div>
+</footer>
+</body>
+</html>
